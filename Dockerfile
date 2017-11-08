@@ -23,7 +23,7 @@ RUN wget https://www.open-mpi.org/nightly/v3.0.x/openmpi-v3.0.x-201711040323-888
 
 RUN tar xzvf openmpi-v3.0.x-201711040323-888fac7.tar.gz
 WORKDIR /openmpi-v3.0.x-201711040323-888fac7
-RUN ./configure 
+RUN ./configure  CFLAGS=-m32 CXXFLAGS=-m32 FFLAGS=-m32 FCFLAGS=-m32
 RUN make all install 
 WORKDIR /
 RUN tar xzvf hdf5-1.6.5.tar.gz
