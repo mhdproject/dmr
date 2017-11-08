@@ -1,0 +1,5 @@
+
+1. Only works on one processor.  The program aborts or it never gets past
+   one time step (infinite loop?).
+
+

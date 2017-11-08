@@ -1,0 +1,2 @@
+cd .. ; make ; cd application;
+#cd .. ; make clean ; make ; cd application;

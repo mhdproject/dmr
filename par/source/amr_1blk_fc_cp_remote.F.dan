@@ -1,0 +1,149 @@
+#include "paramesh_preprocessor.fh"
+
+
+      subroutine amr_1blk_fc_cp_remote(mype,remote_pe,remote_block,
+     .   idest,id,jd,kd,is,js,ks,ilays,jlays,klays,ip1,jp1,kp1,
+     .    ip2,jp2,kp2)
+
+
+
+!------------------------------------------------------------------------
+! $RCSfile $
+! $Revision $
+! $Date $
+!
+! This routine copies guard cell information for cell face centered
+! data to face iface in block
+! idest, from the appropriate face of the neighboring block, assuming
+! that the neighboring block is on a different processor.
+! This routine is similar to amr_face_cp_remote but allows more flexible
+! control over the list of cells which is filled.
+! It can be easily edited to alter the data pattern required for schemes
+! of different order.
+!
+! Arguments:
+!      mype             local processor
+!      remote_pe        remote processor
+!      remote_block     local block id of the block to be copied from
+!                        the remote processor
+!      idest            selects the storage space in data_1blk.fh which is to
+!                        be used in this call. If the leaf node is having its
+!                        guardcells filled then set this to 1, if its parent
+!                        is being filled set it to 2.
+!      id               lower limit of index range of points in x direction
+!                        on destination block
+!      jd               lower limit of index range of points in y direction
+!                        on destination block
+!      kd               lower limit of index range of points in z direction
+!                        on destination block
+!      is               lower limit of index range of points in x direction
+!                        on source block
+!      js               lower limit of index range of points in y direction
+!                        on source block
+!      ks               lower limit of index range of points in z direction
+!                        on source block
+!      ilay             no. of mesh points in x direction to be copied
+!      jlay             no. of mesh points in y direction to be copied
+!      klay             no. of mesh points in z direction to be copied
+!      ip1              offset added to index range defined by (id,ilay)
+!                        0 if guardcells are at lower end of i index
+!                        1 if guardcells are at upper end of i index
+!      jp1              offset added to index range defined by (jd,jlay)
+!                        0 if guardcells are at lower end of j index
+!                        1 if guardcells are at upper end of j index
+!      kp1              offset added to index range defined by (kd,klay)
+!                        0 if guardcells are at lower end of k index
+!                        1 if guardcells are at upper end of k index
+!      ip2              extend range in i coord for facevarx by this amount
+!                        must be set to either 1 or 0
+!      jp2              extend range in j coord for facevary by this amount
+!                        must be set to either 1 or 0
+!      kp2              extend range in k coord for facevarz by this amount
+!                        must be set to either 1 or 0
+!
+!
+!
+! Written :     Peter MacNeice          July 1998
+!------------------------------------------------------------------------
+
+      use paramesh_dimensions
+      use physicaldata
+      use tree
+      use workspace
+
+      implicit real(a-h,o-z)
+
+#include "amr_shmem.fh"
+
+!-------------------------
+
+      integer, intent(in) :: mype,remote_pe,remote_block
+      integer, intent(in) :: idest,id,jd,kd,is,js,ks
+      integer, intent(in) :: ilays,jlays,klays
+      integer, intent(in) :: ip1,jp1,kp1,ip2,jp2,kp2
+
+
+! local arrays
+      real recvx(nbndvar,il_bnd:iu_bnd+1,jl_bnd:ju_bnd,
+     .       kl_bnd:ku_bnd)
+      real recvy(nbndvar,il_bnd:iu_bnd,jl_bnd:ju_bnd+k2d,
+     .       kl_bnd:ku_bnd)
+      real recvz(nbndvar,il_bnd:iu_bnd,jl_bnd:ju_bnd,
+     .       kl_bnd:ku_bnd+k3d)
+      save recvx,recvy,recvz
+
+!-------------------------
+
+
+! Copy complete remote block into a buffer block called recv.
+#ifdef NO_PERMANENT_GUARDCELLS
+      call shmem_real_get(recvx,gt_facevarx(1,1,1,1,remote_block),
+     .       len_blockfx*nbndvar,remote_pe) 
+      if(ndim.ge.2) call shmem_real_get(
+     .                    recvy,gt_facevary(1,1,1,1,remote_block),
+     .                    len_blockfy*nbndvar,remote_pe) 
+      if(ndim.eq.3) call shmem_real_get(
+     .                    recvz,gt_facevarz(1,1,1,1,remote_block),
+     .                    len_blockfz*nbndvar,remote_pe) 
+
+#else
+      call shmem_real_get(recvx,facevarx(1,1,1,1,remote_block),
+     .       len_blockfx*nbndvar,remote_pe) 
+      if(ndim.ge.2) call shmem_real_get(
+     .                    recvy,facevary(1,1,1,1,remote_block),
+     .                    len_blockfy*nbndvar,remote_pe) 
+      if(ndim.eq.3) call shmem_real_get(
+     .                    recvz,facevarz(1,1,1,1,remote_block),
+     .                    len_blockfz*nbndvar,remote_pe) 
+#endif
+
+!
+! Adjust index ranges
+      il = ilays-1
+      jl = (jlays-1)*k2d
+      kl = (klays-1)*k3d
+
+      id1 = id + ip1
+      jd1 = jd + jp1*k2d
+      kd1 = kd + kp1*k3d
+      is1 = is + ip1
+      js1 = js + jp1*k2d
+      ks1 = ks + kp1*k3d
+
+
+
+       facevarx1(1:nbndvar,id1:id1+il+ip2,jd:jd+jl,kd:kd+kl,idest)
+     .    =  recvx(1:nbndvar,is1:is1+il+ip2,js:js+jl,ks:ks+kl)
+
+       if(ndim.ge.2) then
+         facevary1(1:nbndvar,id:id+il,jd1:jd1+jl+jp2,kd:kd+kl,idest)
+     .      =    recvy(1:nbndvar,is:is+il,js1:js1+jl+jp2,ks:ks+kl)
+       endif
+
+       if(ndim.eq.3) then
+         facevarz1(1:nbndvar,id:id+il,jd:jd+jl,kd1:kd1+kl+kp2,idest)
+     .      =    recvz(1:nbndvar,is:is+il,js:js+jl,ks1:ks1+kl+kp2)
+       endif
+
+      return
+      end subroutine amr_1blk_fc_cp_remote

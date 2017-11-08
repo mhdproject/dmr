@@ -1,0 +1,126 @@
+Athena p3.2                                                Date: 03/??/01
+
+This is Athena v3.2.
+
+Instructions
+------------
+
+NOTE: If you are a developer (using cvs), see the DEVELOPER NOTES section.
+
+You must modify paramesh and build it for this application.  To do
+that:
+
+   1. config_paramesh
+
+      This program looks for paramesh-may-31-2002 in ../.
+      It copies the paramesh_mods/headers to the paramesh headers directory
+      and builds paramesh.
+
+      There are other paramesh configure scripts.  I recommend using
+      'c-may-31-2002 (or the .gm) for compiling on beowulf clusters:
+
+         c-may-31-2002         - Uses mpif90 and paramesh may-31-2002
+         c-may-31-2002.gm      - Uses mpif90.gm and paramesh may-31-2002
+         config_paramesh_pivot
+
+Then, you must build the athena application with.  These are NOT
+DEVELOPER NOTES.  If you are a developer using cvs, then see the
+DEVELOPER NOTE section:
+
+   configure
+   make
+
+To use a different compiler, say mpif90.gm, you can use:
+
+   configure --with-fortran=mpif90.gm
+   make clean
+   make
+
+To override compile flags, run make and set FFLAGS, LIBS, etc., on the command
+line.  Run 'configure' and cut-n-paste the 'FFLAGS =' report, as a good
+starting point:
+
+   make FFLAGS='-g -w -132 -dusty -float-store -r8 -DREAL8 -I/usr/local/athena/include -I../../paramesh-may-31-2002/headers -I../../paramesh-may-31-2002'
+
+There are other configure options:
+
+  --with-fortran=COMPILER   Specify the fortran compiler, COMPILER.
+                            Examples: mpif90, mpif90.gm, f95, etc.
+
+
+  --enable-real8=no       -or-
+  --disable-real8         Disable -r8 and -DREAL8.  Default: use -r8 and -DREAL8.          
+
+  --with-mesa=DIR           MESA include files and library are in DIR/include and DIR/lib respectively.
+                            This effectively sets both --with-mesa-lib=DIR and --with-mesa-include=DIR
+
+
+  --with-mesa-lib=DIR       MESA library is installed in DIR
+
+
+  --with-mesa-include=DIR   MESA include files are installed in DIR
+
+
+  --with-paramesh=DIR       Location of paramesh library.
+
+  --enable-shmem            Enables SHMEM and disables MPI.  Default: MPI enabled.
+
+
+
+PARAMESH
+--------
+You can find paramesh-may-31-2002.tar.gz:
+
+    gauss:'~jmerritt/paramesh-may-31-2002.tar.gz:
+    vermeer:'~jmerritt/paramesh-may-31-2002.tar.gz:
+
+
+**** ----------------------------------------------------------------- ****
+      Don't forget to modify the file CHANGES, for this application
+     (athena), if you make any significant changes.
+**** ----------------------------------------------------------------- ****
+
+
+DEVELOPER NOTES:
+
+  cvs co -r graphics-3d -d athena-graphics-3d athena
+  cd athena-graphics-3d
+  setup
+  configure
+  make
+  cd application
+
+Then,
+  athena_graphics &     (This is optional and can be started anytime).
+  mpirun -np 2 athena
+
+-or, if you're on a linux cluster:
+	
+  Pcp athena `pwd`
+  athena_graphics &     (This is optional and can be started anytime).
+  mpirun -np 32 athena
+
+You can run configure with a different fortran compiler:
+
+  configure --with-fortran=mpif90.gm
+
+You can override compile options via the make command line:
+
+  make FFLAGS='-g -w -132 -dusty -float-store -r8 -DREAL8 -I/usr/local/athena/include -I../../paramesh-may-31-2002/headers -I../../paramesh-may-31-2002'
+
+I have examples called 'make_gauss', 'make_linux' which provide a script
+that overrides the compile flags.
+
+  make_gauss
+  make_linux
+
+So,
+ 
+  make_gauss clean
+  make_gauss
+
+-or-
+
+  make_linux clean
+  make_linux
+

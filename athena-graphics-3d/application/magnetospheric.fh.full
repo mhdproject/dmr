@@ -1,0 +1,22 @@
+#define MHD
+!#define CFD
+#define XWIND
+#undef YWIND
+#undef ZWIND
+#undef NOLEFTSTATE
+#define IMF_SOUTH
+#undef IMF_NORTH
+#undef NO_IMF
+#ifdef NO_IMF
+#undef IMF_NORTH
+#undef IMF_SOUTH
+#endif
+#define SQUARE_EARTH
+#define DIPOLE
+#ifdef DIPOLE
+#undef IMAGE_DIPOLE
+#define IMAGE_DIPOLE
+#else
+#undef IMAGE_DIPOLE
+#endif
+#define RAMP_VELOCITY

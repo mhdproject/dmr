@@ -1,0 +1,300 @@
+      subroutine amr_1blk_bcset(mype,ibc,lb,pe,
+     .    idest,iopt,id,jd,kd,ilays,jlays,klays,ip1,jp1,kp1)
+
+
+! $RCSfile $
+! $Revision $
+! $Date $
+
+
+
+
+!------------------------------------------------------------------------
+!
+! This routine sets guardcell values at external boundaries in the case
+! where a single block is having its guardcells filled.
+!
+! It can be assumed in writing this routine, that all guardcells for this
+! block which are not across an external boundary have already been
+! properly filled.
+!
+!
+! Arguments:
+!      mype             local processor
+!      ibc              the integer specifying the particular boundary
+!                        condition to be imposed
+!      lb               block number of selected block
+!      pe               processor on which block lb is located
+!      idest            selects the storage space in data_1blk.fh which is to
+!                        be used in this call. If the leaf node is having its
+!                        guardcells filled then set this to 1, if its parent
+!                        is being filled set it to 2.
+!      id               lower limit of index range of points in x direction
+!      jd               lower limit of index range of points in y direction
+!      kd               lower limit of index range of points in z direction
+!      ilay             no. of mesh points in x direction to be set
+!      jlay             no. of mesh points in y direction to be set
+!      klay             no. of mesh points in z direction to be set
+!      ip1              offset added to index range defined by (id,ilay)
+!                        0 if guardcells are at lower end of i index
+!                        1 if guardcells are at upper end of i index
+!      jp1              offset added to index range defined by (jd,jlay)
+!                        0 if guardcells are at lower end of j index
+!                        1 if guardcells are at upper end of j index
+!      kp1              offset added to index range defined by (kd,klay)
+!                        0 if guardcells are at lower end of k index
+!                        1 if guardcells are at upper end of k index
+!
+!
+!
+! Written :     Peter MacNeice          August 1998
+!------------------------------------------------------------------------
+
+      use physicaldata
+      use tree
+      use workspace
+
+      implicit real(a-h,o-z)
+
+#include "amr_shmem.fh"
+
+#include "test_defs.fh"
+
+      integer, intent(in) :: mype,ibc,lb,pe
+      integer, intent(in) :: idest,iopt,id,jd,kd,ilays,jlays,klays
+      integer, intent(in) :: ip1,jp1,kp1
+
+
+      real ccoord(3),csize(3)
+      save    ccoord,csize
+
+
+
+!-------------------------
+! Test specific
+
+      call shmem_real_get(csize(1),size(1,lb),3,pe)
+      call shmem_real_get(ccoord(1),coord(1,lb),3,pe)
+
+
+! default values used if ndim < 3.
+      dz = 0.
+      z0 = 0.
+
+      ax = 1.
+      ay = 10.
+      az = 100.
+
+      if(mod(nxb,2).eq.0) then
+       if(ndim.eq.3) dz = csize(3)/real(nzb)
+       dy = csize(2)/real(nyb)
+       dx = csize(1)/real(nxb)
+      else
+       if(ndim.eq.3) dz = csize(3)/real(nzb-k3d)
+       dy = csize(2)/real(nyb-1)
+       dx = csize(1)/real(nxb-1)
+      endif
+
+
+!-------------------------
+
+!
+! Adjust index ranges
+      il = ilays-1
+      jl = (jlays-1)*k2d
+      kl = (klays-1)*k3d
+
+! Additional offsets for facevar's
+      id1 = id + ip1
+      jd1 = jd + jp1*k2d
+      kd1 = kd + kp1*k3d
+
+! Which boundary condition has been specified?
+      if(ibc.eq.-21) then
+
+!
+! Do cell-face-centered data
+        if(nfacevar.gt.0.and.iopt.eq.1) then
+
+          id1 = id + ip1
+          jd1 = jd + jp1*k2d
+          kd1 = kd + kp1*k3d
+
+
+!          facevarx1(:,id1:id1+il,jd1:jd1+jl,kd1:kd1+kl,idest) =
+!     .            ????
+
+
+       l = idest
+
+#ifdef FACEX
+       do k=kd,kd+kl
+         if(ndim.eq.3) z0 = ccoord(3)-.5*(csize(3)+dz)
+         zk = z0 + dz*real(k-nguard)
+         do j=jd,jd+jl
+           y0 = ccoord(2)-.5*(csize(2)+dy)
+           yj = y0 + dy*real(j-nguard)
+           do i=id1,id1+il
+             x0 = ccoord(1)-.5*csize(1)-dx
+             xi = x0 + dx*real(i-nguard)
+             value = ax*xi + ay*yj + az*zk
+             do ivar=1,nbndvar
+               facevarx1(ivar,i,j,k,l)=value*real(ivar)
+             enddo
+           enddo
+         enddo
+       enddo
+#endif
+
+#ifdef FACEY
+!              facevary1(:,id1:id1+il,jd1:jd1+jl,kd1:kd1+kl,idest) =
+!     .            ????
+
+       if(ndim.ge.2) then
+       do k=kd,kd+kl
+         if(ndim.eq.3) z0 = ccoord(3)-.5*(csize(3)+dz)
+         zk = z0 + dz*real(k-nguard)
+         do j=jd1,jd1+jl
+           y0 = ccoord(2)-.5*csize(2)-dy
+           yj = y0 + dy*real(j-nguard)
+           do i=id,id+il
+             x0 = ccoord(1)-.5*(csize(1)+dx)
+             xi = x0 + dx*real(i-nguard)
+             value = ax*xi + ay*yj + az*zk
+             do ivar=1,nbndvar
+               facevary1(ivar,i,j,k,l)=value*real(ivar)
+             enddo
+           enddo
+         enddo
+       enddo
+       endif
+#endif
+
+#ifdef FACEZ
+!              facevarz1(:,id1:id1+il,jd1:jd1+jl,kd1:kd1+kl,idest) =
+!     .            ????
+       if(ndim.eq.3) then
+       do k=kd1,kd1+kl
+         if(ndim.eq.3) z0 = ccoord(3)-.5*csize(3)-dz
+         zk = z0 + dz*real(k-nguard)
+         do j=jd,jd+jl
+           y0 = ccoord(2)-.5*(csize(2)+dy)
+           yj = y0 + dy*real(j-nguard)
+           do i=id,id+il
+             x0 = ccoord(1)-.5*(csize(1)+dx)
+             xi = x0 + dx*real(i-nguard)
+             value = ax*xi + ay*yj + az*zk
+             do ivar=1,nbndvar
+               facevarz1(ivar,i,j,k,l)=value*real(ivar)
+             enddo
+           enddo
+         enddo
+       enddo
+       endif
+#endif
+
+        endif                            ! end of nfacevar if test
+
+
+!
+! Now do cell centered data
+
+        if(iopt.eq.1) then
+
+!          unk1(:,id:id+il,jd:jd+jl,kd:kd+kl,idest) = 
+!     .             ????
+
+          l = idest
+          do k = kd,kd+kl
+          do j = jd,jd+jl
+          do i = id,id+il
+
+            if(mod(nxb,2).eq.0) then
+              x0 = ccoord(1)-.5*(csize(1)+dx)+dx*real(i-nguard)
+              y0 = ccoord(2)-.5*(csize(2)+dy)+dy*real(j-nguard)
+              if(ndim.eq.3) z0 = 
+     .            ccoord(3)-.5*(csize(3)+dz)+dz*real(k-nguard)
+            else
+              x0 = ccoord(1)-.5*csize(1)-dx+dx*real(i-nguard)
+              y0 = ccoord(2)-.5*csize(2)-dy+dy*real(j-nguard)
+              if(ndim.eq.3) z0 = 
+     .            ccoord(3)-.5*csize(3)-dz+dz*real(k-nguard)
+            endif
+
+            value = ax*x0 + ay*y0 + az*z0
+            do ivar=1,nvar
+              unk1(ivar,i,j,k,l) = value*real(ivar)
+            enddo
+#ifdef TESTXDIR
+            do ivar=1,nvar
+              unk1(ivar,i,j,k,l) = x0*real(ivar)
+            enddo
+#endif
+#ifdef TESTYDIR
+            do ivar=1,nvar
+              unk1(ivar,i,j,k,l) = y0*real(ivar)
+            enddo
+#endif
+#ifdef TESTZDIR
+	    if (ndim == 3) then
+            do ivar=1,nvar
+              unk1(ivar,i,j,k,l) = z0*real(ivar)
+            enddo
+	    end if
+#endif
+
+          enddo
+          enddo
+          enddo
+
+        elseif(iopt.eq.2) then
+
+!          work1(id:id+il,jd:jd+jl,kd:kd+kl,idest) = 
+!     .             ????
+
+          l = idest
+          do k = kd,kd+kl
+          do j = jd,jd+jl
+          do i = id,id+il
+
+            if(mod(nxb,2).eq.0) then
+              x0=ccoord(1)-.5*(csize(1)+dx)+dx*real(i-nguard_work)
+              y0=ccoord(2)-.5*(csize(2)+dy)+dy*real(j-nguard_work)
+              if(ndim.eq.3) z0 =
+     .          ccoord(3)-.5*(csize(3)+dz)+dz*real(k-nguard_work)
+            else
+              x0=ccoord(1)-.5*csize(1)-dx+dx*real(i-nguard_work)
+              y0=ccoord(2)-.5*csize(2)-dy+dy*real(j-nguard_work)
+              if(ndim.eq.3) z0 =
+     .          ccoord(3)-.5*csize(3)-dz+dz*real(k-nguard_work)
+            endif
+
+            value = ax*x0 + ay*y0 + az*z0
+            work1(i,j,k,l) = value
+#ifdef TESTXDIR
+            work1(i,j,k,l) = x0
+#endif
+#ifdef TESTYDIR
+            work1(i,j,k,l) = y0
+#endif
+#ifdef TESTZDIR
+	    if (ndim == 3) then
+            work1(i,j,k,l) = z0
+	    end if
+#endif
+
+          enddo
+          enddo
+          enddo
+
+
+        endif
+!-------------------------
+
+!       elseif(ibc.eq.??) then
+
+
+       endif                            ! end of test of bc flag
+
+      return
+      end
