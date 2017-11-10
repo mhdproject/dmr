@@ -10,7 +10,7 @@ export F90 = mpif90
 export F90FLAGS = -O3 -align -ip -unroll -132 -w -w90 -w95 -r8 -DREAL8 -g 
 export F90FLAGS =-O3 -fast -Mextend -r8 -DREAL8 -g
 export F90FLAGS = -extend_source -macro_expand  -r8 -DREAL8 -OPT:Olimit=7917 -O3 
-export F90FLAGS =  -DREAL8 -O3  -ffixed-line-length-132 -cpp -m32
+export F90FLAGS =  -O3  -ffixed-line-length-132 -cpp -m32
 
 ###export F90FLAGS = -O0  -tpp7 -axW -xW  -132 -w -w90 -w95 -r8 -DREAL8 -g 
 
@@ -25,7 +25,7 @@ export F90FLAGS =  -DREAL8 -O3  -ffixed-line-length-132 -cpp -m32
 # C compiler and flags
 export CC = gcc
 # linux
-export CFLAGS = -O3  -I /usr/include/hdf5/serial -DH5_USE_16_API -m32
+export CFLAGS = -O3  -I /hdf5-1.6.5/hdf5/include -DH5_USE_16_API -m32
 #-I/usr/local/ChomboVis-4.1.3/usr/include
 #-I${HOME}/hdf5/include 
 #-I/usr/local/ChomboVis-3.94.3/usr/include  
@@ -37,7 +37,7 @@ export CFLAGS = -O3  -I /usr/include/hdf5/serial -DH5_USE_16_API -m32
 # linux
 #export LDFLAGS = -lglut -lGLU -lGL
 export LDFLAGS = -lm  \
--L/usr/lib/x86_64-linux-gnu/ -lhdf5_serial -m32
+-L/usr/lib/ -lhdf5 -m32
 #-L/usr/local/ChomboVis-4.1.3/usr/lib -lhdf5
 #-L${HOME}/hdf5/lib -lhdf5
 
