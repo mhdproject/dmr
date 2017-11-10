@@ -44,11 +44,15 @@ COPY ath.tgz /
 WORKDIR /
 RUN tar xzvf ath.tgz 
 WORKDIR /athena-graphics-3d/application
-RUN mpif90 -c physcons.F -I../../par/headers -ffixed-line-length-132
-RUN mpif90 -c module_grid.F -I../../par/headers -ffixed-line-length-132
-RUN mpif90 -c module_hstrongfield.F -I../../par/headers
-RUN mpif90 -c module_athena_specific_parameters.F -I../../par/headers -ffixed-line-length-132
-RUN mpif90 -c module_interior_gbc.F -I../../par/headers -ffixed-line-length-132
+RUN mpif90 -c -I../../par/headers -ffixed-line-length-132  -x f95-cpp-input physcons.F
+RUN mpif90 -c -I../../par/headers -ffixed-line-length-132 -x f95-cpp-input module_grid.F 
+RUN mpif90 -c -I../../par/headers -ffixed-line-length-132 -x f95-cpp-input module_hstrongfield.F
+RUN mpif90 -c -I../../par/headers -ffixed-line-length-132 -x f95-cpp-input module_athena_specific_parameters.F 
+RUN mpif90 -c -I../../par/headers -ffixed-line-length-132 -x f95-cpp-input module_interior_gbc.F
 WORKDIR /athena-graphics-3d/
-#RUN make
+RUN make
+WORKDIR /athena-graphics-3d/application
+RUN apt-get install -y openmpi-bin
+
+
 

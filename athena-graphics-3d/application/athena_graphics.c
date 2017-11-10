@@ -1,8 +1,8 @@
 #include "athena_preprocessor.fh"
-#ifdef INTERACTIVE_GRAPHICS
 #include <stdio.h>
-#include <signal.h>
 #include <stdlib.h>
+#ifdef INTERACTIVE_GRAPHICS
+#include <signal.h>
 
 #define MAX_WIDTH 2048
 #define MAX_HEIGHT 2048

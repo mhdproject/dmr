@@ -509,7 +509,7 @@ c         write(*,*) mype, time,'amr_1blk in',unk1(1,11,5,1,idest)
 !
 ! Now do cell edge centered data
 
-#ifdef N_DIM > 1
+#if N_DIM > 1
 
         if(nvaredge.gt.0) then
 ! First unk_e_x1
@@ -1037,7 +1037,7 @@ c         write(*,*) mype, time,'amr_1blk in',unk1(1,11,5,1,idest)
 !
 ! Now do cell edge centered data
 
-#ifdef N_DIM > 1
+#if N_DIM > 1
 
         if(nvaredge.gt.0) then
 ! First unk_e_x1
