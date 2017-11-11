@@ -1,4 +1,4 @@
-FROM 32bit/ubuntu:16.04
+FROM ubuntu:artful
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
@@ -15,8 +15,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 #RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.8 10
 #RUN ln -s /usr/bin/cpp-4.8 /usr/bin/cpp
-#RUN wget https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.6/hdf5-1.10.1.tar.gz
 
+COPY hdf5-1.6.5.tar.gz /
 COPY hdf5-1.10.1.tar.gz /
 
 # RUN wget https://www.open-mpi.org/nightly/v3.0.x/openmpi-v3.0.x-201711040323-888fac7.tar.gz
@@ -25,6 +25,7 @@ COPY hdf5-1.10.1.tar.gz /
 #RUN ./configure  
 #RUN make all install 
 WORKDIR /
+#RUN wget https://support.hdfgroup.org/ftp/HDF5/current18/src/hdf5-1.8.19.tar.gz --no-check-certificate
 RUN tar xzvf hdf5-1.10.1.tar.gz
 
 WORKDIR hdf5-1.10.1
@@ -44,7 +45,7 @@ COPY ath.tgz /
 WORKDIR /
 RUN tar xzvf ath.tgz 
 WORKDIR /athena-graphics-3d/application
-RUN mpif90 -c -I../../par/headers -ffixed-line-length-132  -x f95-cpp-input physcons.F
+RUN mpif90 -c -I../../par/headers -ffixed-line-length-132 -x f95-cpp-input physcons.F
 RUN mpif90 -c -I../../par/headers -ffixed-line-length-132 -x f95-cpp-input module_grid.F 
 RUN mpif90 -c -I../../par/headers -ffixed-line-length-132 -x f95-cpp-input module_hstrongfield.F
 RUN mpif90 -c -I../../par/headers -ffixed-line-length-132 -x f95-cpp-input module_athena_specific_parameters.F 

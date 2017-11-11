@@ -61,7 +61,7 @@ export FC = mpif90
 #export FFLAGS = -O3 -ip -i4 -r8 -I../headers -I/usr/local/mpich-intel/include
 export FFLAGS = -O3  -unroll -align -ip -i4 -r8 -I../headers  -w -w90 -w95 -c -m32
 export FFLAGS = -O3 -i4 -r8 -I../headers 
-export FFLAGS = -O3 -I../headers -m32
+export FFLAGS = -O1 -I../headers 
 #export ADD_LIB = -L/usr/local/mpich-intel/lib -lmpichf90 -lmpich -lPEPCF90
 
 #-----------------------------------------------

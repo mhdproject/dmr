@@ -318,7 +318,7 @@ void writeblocktochombofile_ (int* block_loc,
 				 count, NULL);
       if(err != 0)
 	{
-	  printf("Error selecting %i to %i size %i",j, offset[0], count[0]);
+	  printf("Error selecting %i to %lld size %lld",j, offset[0], count[0]);
 	}
       memdataspace = H5Screate_simple(1, count, NULL);
       for(kkk = 0; kkk < *nzb; kkk++)
@@ -346,7 +346,7 @@ void writeblocktochombofile_ (int* block_loc,
 		     H5P_DEFAULT, unk2);
       if(err != 0)
 	{
-	  printf("Error writing %i to %i size %i",i, offset[0], count[0]);
+	  printf("Error writing %i to %lld size %lld",i, offset[0], count[0]);
 	}
       H5Sclose(memdataspace);
     }
@@ -404,7 +404,7 @@ void writeblocktochombofile_ (int* block_loc,
 				 count, NULL);
       if(err != 0)
 	{
-	  printf("Error selecting %i to %i size %i",j, offset[0], count[0]);
+	  printf("Error selecting %i to %lld size %lld",j, offset[0], count[0]);
 	}
       memdataspace = H5Screate_simple(1, count, NULL);
       for(kkk = 0; kkk < *nzb; kkk++)
@@ -432,7 +432,7 @@ void writeblocktochombofile_ (int* block_loc,
 		     H5P_DEFAULT, unk2);
       if(err != 0)
 	{
-	  printf("Error writing %i to %i size %i",i, offset[0], count[0]);
+	  printf("Error writing %i to %lld size %lld",i, offset[0], count[0]);
 	}
       H5Sclose(memdataspace);
     }

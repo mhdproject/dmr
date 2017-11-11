@@ -30,7 +30,7 @@
            den = ho - hp
 
 ! error trap : error occurs if two xa values are identical to roundoff
-           if(den.eq.0) pause 'failure in polint'
+           if(den.eq.0) stop 'failure in polint'
 
            den = w/den
            d(i) = hp*den

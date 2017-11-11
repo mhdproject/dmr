@@ -808,7 +808,7 @@ int writeData(FAB* FABArray, int length, HDF5Handle handle)
 				 count, NULL);
 	  if(err != 0)
 		{
-		  printf("Error selecting %i to %i size %i",i, offset[0], count[0]);
+		  printf("Error selecting %i to %lld size %lld",i, offset[0], count[0]);
 		  return -8;
 		}
       memdataspace = H5Screate_simple(1, count, NULL);
@@ -816,7 +816,7 @@ int writeData(FAB* FABArray, int length, HDF5Handle handle)
 		     H5P_DEFAULT, FABArray[i].f2.data);
 	  if(err != 0)
 		{
-		  printf("Error writing %i to %i size %i",i, offset[0], count[0]);
+		  printf("Error writing %i to %lld size %lld",i, offset[0], count[0]);
 		  return -5;
 		}
       H5Sclose(memdataspace);
