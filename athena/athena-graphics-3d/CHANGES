@@ -1,0 +1,133 @@
+----------------------------------------------------------------------
+p3.2                                                     Date 03/??/02
+
+1. Fixed graphics so that lgraph and lmove are independant, almost.
+   This eliminates lonscreen.  When both are set, images and graphics
+   are produced at steps the lesser of nmovie or nstep_graphics.
+
+2. Added 3D graphics.
+
+3. Adds make_pivot which is a makefile front end for building
+   athena on the beowulf cluster for on multiple processors.
+
+4. The 3D graphics works on one processor
+   and the graphics is now a seperate application, athena_graphics, 
+   which receives signals from athena.  The reason for this is that
+   you cannot have graphics on a beowulf cluster.  Nor, can you spawn
+   a graphic subprocess from an mpi application.
+
+   Tested with mpif90.gm.  See make_linux-3d.  The graphic interface
+   works but the application doesn't.
+
+5. Eliminated two files in paramesh_mods/headers.  The files removed
+   are: paramesh_dimensions.F and physicaldata.F.  These files are
+   no longer needed by the application.
+
+6. Works for one processor linking with paramesh-may-01-2002 (pre 3.0).
+   Eliminated paramesh_mods/headers/tree.F.  The program DOES NOT link
+   with an earlier version of paramesh.  Also, paramesh-may-31-2002.
+
+7. 04/02/02 = Runs for about 1200 time steps on 32 processors with graphics,
+   then bombs out.
+
+8. Added module_athena_specific_parameters.F and fixed building on IRIX.
+   Also, fixed a preprocessor problem with INTERACTIVE_GRAPHICS.
+
+9. Renamed preprocessor.fh to athena_preprocessor.fh.
+
+10. Added read_control.F and placed the call in the main loop so that
+    modifications to 'athena.control' will take effect on the next loop
+    iteration.  So, changing the frequency of image generation or
+    graphic updates is facilitated.
+
+11. Changed building to used autoconf and automake.
+
+    setup
+    configure
+    make
+    cd application
+
+Then,
+
+    athena_graphics &  (optional)
+    mpirun -np 2 athena
+  
+Or, on a Linux cluster
+
+    Pcp athena `pwd`   - Provided the directory structure is the same
+                         on all nodes.  'Psh mkdir `pwd`.   You may
+                         need to, only once:
+                             Psh mkdir proj
+                             Psh mkdir proj/athena-grahpics-3d
+                             Psh mkdir proj/athena-grahpics-3d/application
+
+    athena_graphics &  (optional)
+    mpirun -np 2 athena
+
+----------------------------------------------------------------------
+pre-v3.1-4                                               Date 03/20/02
+
+----------------------------------------------------------------------
+pre-v3.1-3                                               Date 02/??/02
+
+1. Link w/ paramesh-v2.4
+
+----------------------------------------------------------------------
+pre-v3.1-2                                               Date 02/12/02
+
+   *********************************
+   *** DO NOT USE THE jhm BRANCH ***
+   *********************************
+
+1. Link with paramesh-pre-v2.3 or greater.
+
+2. fixed the boundary condition. 
+
+3. This is the merge of branch jhm3_1 which is a branch of jhm.
+   The jhm and jhm3_1 branches are no longer needed.
+
+   It is only necessary to check out athena with:
+ 
+      cvs co athena
+
+   In the unlikely event you wish to check out the branchs,
+   mentioned above,  do the following:
+
+      cvs co -r jhm3_1 -d athena-jhm3_1 athena
+
+   It will create a directory called 'athena-jhm3_1'  (the argument to
+   the -d option) and it will use the branch 'jhm3_1' (the -r option).
+   Go to the directory 'athena-jhm3_1' and make any changes you like.
+   When you commit, you will be committing changes to the branch 'jhm3_1'.
+   Later, when things are working well, I will merge the changes
+   into the mainline of athena.
+
+4. Added -extend_source to compile flags.
+
+5. Added config_paramesh script to copy headers and build paramesh.
+
+6. Problem compiling brackbill_src_term.F.  For some reason I must
+   include the file 'amr_shmem.fh' verbatim instead of using 
+   the '#include' C preprocessor directive.  Compilier bug?
+
+7. Added off screen rendering.  This links and runs with Mesa version 
+   2.5.1 and above.  As of 1/8/02, off screen color does not work
+   with Mesa 2.5.1. It does work with Mesa 3.4.2 in
+   /usr/local/{include,lib}/Mesa-3.4.2.  But, those objects are 32 bit.
+   You can't compile with '-64'.  You must build paramesh similiarly.
+   I have made 'config_paramesh32' for that purpose.
+
+8. Seems to work on Linux.
+
+---------------------------------------------------------------------
+1. Minor changes in amr_1blk_bcset.F, amr_test_refinement.F
+
+2. Minor changes in mhd3d.F
+
+----------------------------------------------------------------------
+v3.0                                                      Date 8/23/01
+
+Initial release of Athena 3.0.
+
+This code compiles against paramesh-pre2.1-6 on the SGI only (known).
+

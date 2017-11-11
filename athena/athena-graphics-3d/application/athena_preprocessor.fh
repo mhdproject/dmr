@@ -1,0 +1,247 @@
+/* SELECT problem */
+#undef INTERIOR_BOUNDARY
+#undef EXPLOSION
+#undef FLOW_AROUND_CUBE
+#undef MAGNETOSPHERE
+#undef PULSAR
+#define JET
+#undef CIRCULATION
+#undef DIVERGENCE_TEST
+/* END SELECT problem */
+
+/* SELECT  CFD  or MHD. */
+#define CFD
+#undef MHD
+/* END OF SELECT  CFD  or MHD. */
+ 
+/* SELECT EXTERNAL SOURCES */
+#undef SOURCES
+#ifdef SOURCES
+#define GRAVITY
+#else
+#undef GRAVITY
+#endif
+/* END OF SELECT EXTERNAL SOURCES */
+
+/* SELECT MHD OPTIONS */
+#ifdef CFD
+#undef LORENTZ_FORCE
+#undef BFILTER
+#undef PROJECTION
+#else
+#define BFILTER
+#define LORENTZ_FORCE
+#undef MARDER
+#undef STONE_FIX
+#undef BORIS_CORRECTION
+#endif
+#ifdef LORENTZ_FORCE
+#define PROJECTION
+#else
+#undef PROJECTION
+#endif
+#ifdef BFILTER
+#define BALSARA_SPICER
+#define OVERWRITE
+#undef ANOMALOUS_TRANSPORT
+#endif
+/* END OF SELECT MHD OPTIONS */
+#ifdef EXPLOSION
+#undef INTERIOR_BOUNDARY
+#endif /*EXPLOSION*/
+#ifdef PULSAR
+#undef INTERIOR_BOUNDARY
+#endif /*PULSAR*/
+
+
+#ifdef MAGNETOSPHERE
+#define INTERIOR_BOUNDARY
+#define XWIND
+#undef YWIND
+#undef ZWIND
+#undef NOLEFTSTATE
+#define IMF_SOUTH
+#undef NO_IMF
+#undef IMF_NORTH
+
+#ifdef NO_IMF
+#undef IMF_NORTH
+#undef IMF_SOUTH
+#endif /*NO_IMF*/
+ 
+#define DIPOLE
+#ifdef DIPOLE
+#define IMAGE_DIPOLE
+#else
+#undef IMAGE_DIPOLE
+#endif /*DIPOLE*/
+
+#define RAMP_VELOCITY
+ 
+#ifdef CFD
+#undef DIPOLE
+#undef IMAGE_DIPOLE
+#define NO_IMF
+#endif /*CFD*/
+
+#ifdef NOLEFTSTATE
+#undef IMF_SOUTH
+#undef IMF_NORTH
+#endif /*NOLEFTSTATE*/
+
+#else
+#undef INTERIOR_BOUNDARY
+#endif /*MAGNETOSPHERE*/
+
+#ifdef DIVERGENCE_TEST
+#undef INTERIOR_BOUNDARY
+#endif /*MAGNETOSPHERE*/
+#ifdef INTERIOR_BOUNDARY
+#undef IONOSPHERE
+#endif /*INTERIOR_BOUNDARY*/
+
+#undef SPATIAL_HIGH_ORDER
+#undef BRACKBILL_SRC_TERM
+
+/* INTERIOR_BOUNDARY OPTIONS */
+#ifdef INTERIOR_BOUNDARY
+#undef CONTINOUS_NORMAL_MAG_FIELD
+#define CAVITATION_FLOOR
+#undef SLIP
+#define NO_SLIP
+/* SHAPE OF INTERIOR BOUNDARY */
+#define SPHERE
+#undef CUBE
+/* SHAPE OF INTERIOR BOUNDARY */ 
+#undef NEVER
+
+#else
+
+#undef SPHERE
+#undef CUBE
+ 
+#endif /*INTERIOR_BOUNDARY*/
+/* END INTERIOR_BOUNDARY OPTIONS */
+
+/*  From block_ctu.F */
+/* SELECT RIEMANN SOLVER */
+#undef ROE
+#undef NON_LINEAR_MHD
+#undef NON_LINEAR_CFD
+#define HLLE
+/* IS Artificial Viscosity Desired ?*/ 
+#define LAPIDIUS
+#undef ROE_AVERAGE
+#ifdef ROE
+#define PRIMITIVE_FLUXES
+#endif /*ROE*/
+
+#ifdef NON_LINEAR_CFD
+#endif /*NON_LINEAR_CFD*/
+
+#ifdef NON_LINEAR_MHD
+#endif /*NON_LINEAR_MHD*/
+
+#ifdef HLLE
+#endif /*HLLE*/
+
+/* END SELECT RIEMANN SOLVER */
+
+
+#define CTU_CORRECTION
+#define HIGH_ORDER
+#define SECOND_ORDER_CORRECTION
+#undef FLATEN_SLOPES
+
+
+
+/* SELECT RECONSTRUCTION ALGORITHM */
+/* Types of solvers:
+ *    MUSCL - Monotone Upwind Schemes for Scalar Conservation Laws
+ *    PIM   - Partial Interface Method.
+ *    PPM   - Piecewise Parabalic method.
+ *    PLM   - Piecewise Linear method.
+ */
+#define MUSCL
+#undef PIM
+#undef PPM
+#undef PLM
+
+#ifdef MUSCL
+#define SPATIAL_SECOND_ORDER
+#ifdef SPATIAL_SECOND_ORDER
+#define MONOTONIZE_PRIMITIVES
+#define CHARACTERISTIC_TRACING
+#else
+#define LIMITOR1
+#define CHARACTERISTIC_TRACING
+#endif
+#endif /*MUSCL*/
+#ifdef PLM
+#define SPATIAL_SECOND_ORDER
+#ifdef SPATIAL_SECOND_ORDER
+#define MONOTONIZE_PRIMITIVES
+#define CHARACTERISTIC_TRACING
+#else
+#define LIMITOR1
+#define CHARACTERISTIC_TRACING
+#endif
+#endif /*PLM*/
+
+#ifdef PPM
+#endif /*PPM*/
+/* END SELECT RECONSTRUCTION ALGORITHM */
+
+/* !#include "mydebug.fh" */
+#define INITIAL_REFINE_MESH
+#define RUNTIME_REFINE_MESH
+#define NEVER_EVER
+/* !#define DONT_REFINE_EARTH */
+
+/* ! Enable interactive graphics (sgi only) */
+#define CHOMBO_VIS 
+#undef INTERACTIVE_GRAPHICS
+#define BUUUGG
+/* !#define DEBUG */
+#undef CHECK_DIVB
+#undef GRAPHICS
+#ifdef INTERACTIVE_GRAPHICS
+#define GRAPHICS
+#ifdef GRAPHICS
+#define QUK_GRAPHICS
+#undef GUARDVIEW
+/* !#define GRAPH_DIVB */
+#endif /*GRAPHICS*/
+#endif /*INTERACTIVE_GRAPHICS*/
+
+#ifdef MAGNETOSPHERE
+#define REFINE_EARTH_INITIAL
+#define REFINE_ON_DENSITY
+#endif
+
+#define REFINE_UNIFORMILY
+/* !#define UNIFORM_REFINEMENT */
+/* !#ifdef MAGNETOSPHERE || defined(UNIFORM_REFINEMENT) */
+/* !#define REFINE_UNIFORMILY */
+/* !#define REFINE_EARTH_INITIAL */
+/* !#endif */
+
+#ifdef NEVER_EVER
+#define REFINE_UNIFORMILY
+#define UNIFORM_REFINEMENT
+#ifdef MAGNETOSPHERE
+/* !#undef REFINE_UNIFORMILY */
+/* !#define REFINE_EARTH_INITIAL */
+#define REFINE_UNIFORMILY
+#define REFINE_EARTH_INITIAL
+#endif
+#endif
+
+#ifdef DIVERGENCE_TEST
+#define REFINE_DIVB_INITIAL
+#define REFINE_ON_DENSITY
+#endif
+#undef CONSERVED_DIAGNOSTICS
+/* !#define NEVER200 */
+
+/* !#define MG_COMMENTS */

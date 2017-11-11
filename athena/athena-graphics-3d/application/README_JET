@@ -1,0 +1,27 @@
+BOUNDARY CONDITIONS NEED TO BE SET SO THAT INFLOW MAINTAINED INSIDE FINITE APERTURE OF LOWER Y
+AND REFLECTIVE BCS AWAY FROM APERTURE
+
+jet paramters assigned to common block in athena.F:
+     common/jet_state/jet_den, jet_p, jet_vy,jet_radius, jet_beta,
+     .     ambient_den, ambient_vy, ambient_p
+
+NB: Jet radius is rounded to integer number of fine grid cell spacings
+
+Jet inflow assumed to be centered on 0,0
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+Identifier for new boundary condition is "-40" 
+
+Control mainly in amr_1blk_bcset.F. Some inherited quantities assigned in athena.F 
+and amr_initial_jet.F.
+
+Refinement testing done on density. Hardwired into amr_test_refinement (ibc_work = 1).
+
+Force full refinement around inflow aperture in box of dimension 2.0*jet_radius
+athena.F:
+
+CYYC              force refinement around jet inflow aperture
+                  r=2.0*jet_radius
+

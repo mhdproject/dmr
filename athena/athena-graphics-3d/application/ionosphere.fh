@@ -1,0 +1,13 @@
+      integer, parameter :: nxg   = nxb + 2*nguard
+      integer, parameter :: nyg   = nyb + 2*nguard*k2d
+      integer, parameter :: nzg   = nzb + 2*nguard*k3d
+      
+      integer, parameter :: nxgp1 = nxg + 1
+      integer, parameter :: nygp1 = nyg + k2d
+      integer, parameter :: nzgp1 = nzg + k3d
+
+!     real, dimension(nxgp1,nygp1,nzgp1,maxblocks) :: phi3d
+      real,dimension(iu_bnd+1,ju_bnd+1,ku_bnd+1,maxblocks) :: phi3d
+      common/iono/phi3d
+      real, dimension(  nxg,  nyg,  nzg          ) :: mask
+    

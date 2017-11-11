@@ -1,0 +1,20 @@
+!----------------------------------------------------------------------
+! PARAMESH - an adaptive mesh library.
+! Copyright (C) 2003
+!
+! Use of the PARAMESH software is governed by the terms of the
+! usage agreement which can be found in the file
+! 'PARAMESH_USERS_AGREEMENT' in the main paramesh directory.
+!----------------------------------------------------------------------
+
+      integer nreduce
+      parameter(nreduce=1)
+      common/shmemcoll/                                                 
+     &       pwrk(max(nreduce/2+1,SHMEM_REDUCE_MIN_WRKDATA_SIZE)),      
+     &       ipwrk(max(nreduce/2+1,SHMEM_REDUCE_MIN_WRKDATA_SIZE)),     
+     &       ipsync(SHMEM_REDUCE_SYNC_SIZE),                            
+     &       ibsync(SHMEM_BCAST_SYNC_SIZE),                             
+     &   pestart,pestride,pesize
+      integer :: ipsync,ipwrk,ibsync,pestart,pestride,pesize
+      real    :: pwrk
+

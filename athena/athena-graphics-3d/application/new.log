@@ -1,0 +1,353 @@
+ exiting amr_ini: 945            0
+ mpi-call: numb_processors, id            16            0
+ lgraph,nstep_graphics,restart,                                                                                                  nstep_dump,nstep_print= 
+   T            2  T          500            1
+ ltecplot,nstep_print=            1            1
+ rmin,pmin,smin=    0.1000000000000000        1.0000000000000000E-003 
+   1.0000000000000000E-007
+ cfl =    0.4000000000000000     
+ ctore,ctode,nuref=   0.2000000000000000        0.4000000000000000      
+   1.0000000000000000E-002            1
+ luref(            1 )=            1
+ nmovie       =          250
+ movie_si     =            0
+ lmovie       =  F
+ earth_radius =    30.00000000000000     
+ blocks to be input          1773
+ re-start time    0.2405950792158145     
+ re-start index,nchombo:          8500          119
+  interation, no. not moved =             0          119
+  interation, no. not moved =             1            0
+  grid_xmin     0.000000000000000     
+  grid_xmax     4.000000000000000     
+  grid_ymin     0.000000000000000     
+  grid_ymax     1.000000000000000     
+  grid_zmin    -1.000000000000000     
+  grid_zmax     0.000000000000000     
+ pe             0  after mpi_amr_morton_limits
+ pe             0  after mpi_morton_bnd
+ pe             0  after mpi_amr_gsurr_blks
+ pe             0  after mpi_morton_bnd_prol
+ pe             0  after mpi_morton_bnd_flux
+ pe             0  after mpi_morton_bnd_restrict
+  read: ebox-x    0.00000      0.00000      0
+  read: ebox-y    0.00000      0.00000      0
+  read: ebox-z    0.00000      0.00000      0
+ leaving MPI_USED:3
+ leaving subroutine amr_checkpoint_re_a
+  check: ebox-x    0.00000      0.00000      0
+  check: ebox-y    0.00000      0.00000      0
+  check: ebox-z    0.00000      0.00000      0
+  ebox-x    0.00000      0.00000      0
+  ebox-y    0.00000      0.00000      0
+  ebox-z    0.00000      0.00000      0
+ ----------minstp, maxstp,lnblocks,mype=         8501        68500          112
+             0
+ istep,time,dt =          8501   0.2405950792158145      
+   2.7289927162013843E-005
+ v1(            1 ) =     22.98401559102323         1.400000000000000     
+ v1(            2 ) =     17.78091346679055        -1.933698336807580     
+ v1(            3 ) =     2.751342884375103        -4.741589234448045     
+ v1(            4 ) =     0.000000000000000         0.000000000000000     
+ v1(            5 ) =     560.8507551914879         1.000000000000000     
+ v1(            6 ) =     0.000000000000000         0.000000000000000     
+ v1(            7 ) =     0.000000000000000         0.000000000000000     
+ v1(            8 ) =     0.000000000000000         0.000000000000000     
+ PARAMESH ERROR: communication control info is 
+ being read, but it was never set up. You are 
+ probably missing a call to amr_checkpoint_re or amr_refine_derefine.
+p0_29497:  p4_error: : 0
+ pe             2  after mpi_amr_morton_limits
+ pe             2  after mpi_morton_bnd
+ pe             2  after mpi_amr_gsurr_blks
+ pe             2  after mpi_morton_bnd_prol
+ pe             2  after mpi_morton_bnd_flux
+ pe             2  after mpi_morton_bnd_restrict
+  read: ebox-x    0.00000      0.00000      2
+  read: ebox-y    0.00000      0.00000      2
+  read: ebox-z    0.00000      0.00000      2
+ leaving MPI_USED:3
+ leaving subroutine amr_checkpoint_re_a
+  check: ebox-x    0.00000      0.00000      2
+  check: ebox-y    0.00000      0.00000      2
+  check: ebox-z    0.00000      0.00000      2
+ PARAMESH ERROR: communication control info is 
+ being read, but it was never set up. You are 
+ probably missing a call to amr_checkpoint_re or amr_refine_derefine.
+p2_15138:  p4_error: : 0
+rm_l_2_15140: (3.156250) net_send: could not write to fd=5, errno = 32
+ pe             6  after mpi_amr_morton_limits
+ pe             6  after mpi_morton_bnd
+ pe             6  after mpi_amr_gsurr_blks
+ pe             6  after mpi_morton_bnd_prol
+ pe             6  after mpi_morton_bnd_flux
+ pe             6  after mpi_morton_bnd_restrict
+  read: ebox-x    0.00000      0.00000      6
+  read: ebox-y    0.00000      0.00000      6
+  read: ebox-z    0.00000      0.00000      6
+ leaving MPI_USED:3
+ leaving subroutine amr_checkpoint_re_a
+  check: ebox-x    0.00000      0.00000      6
+  check: ebox-y    0.00000      0.00000      6
+  check: ebox-z    0.00000      0.00000      6
+ PARAMESH ERROR: communication control info is 
+ being read, but it was never set up. You are 
+ probably missing a call to amr_checkpoint_re or amr_refine_derefine.
+p6_21123:  p4_error: : 0
+rm_l_6_21125: (3.148438) net_send: could not write to fd=5, errno = 32
+ pe            14  after mpi_amr_morton_limits
+ pe            14  after mpi_morton_bnd
+ pe            14  after mpi_amr_gsurr_blks
+ pe            14  after mpi_morton_bnd_prol
+ pe            14  after mpi_morton_bnd_flux
+ pe            14  after mpi_morton_bnd_restrict
+  read: ebox-x    0.00000      0.00000     14
+  read: ebox-y    0.00000      0.00000     14
+  read: ebox-z    0.00000      0.00000     14
+ leaving MPI_USED:3
+ leaving subroutine amr_checkpoint_re_a
+  check: ebox-x    0.00000      0.00000     14
+  check: ebox-y    0.00000      0.00000     14
+  check: ebox-z    0.00000      0.00000     14
+ PARAMESH ERROR: communication control info is 
+ being read, but it was never set up. You are 
+ probably missing a call to amr_checkpoint_re or amr_refine_derefine.
+p14_11388:  p4_error: : 0
+rm_l_14_11390: (3.144531) net_send: could not write to fd=5, errno = 32
+ pe             4  after mpi_amr_morton_limits
+ pe             4  after mpi_morton_bnd
+ pe             4  after mpi_amr_gsurr_blks
+ pe             4  after mpi_morton_bnd_prol
+ pe             4  after mpi_morton_bnd_flux
+ pe             4  after mpi_morton_bnd_restrict
+  read: ebox-x    0.00000      0.00000      4
+  read: ebox-y    0.00000      0.00000      4
+  read: ebox-z    0.00000      0.00000      4
+ leaving MPI_USED:3
+ leaving subroutine amr_checkpoint_re_a
+  check: ebox-x    0.00000      0.00000      4
+  check: ebox-y    0.00000      0.00000      4
+  check: ebox-z    0.00000      0.00000      4
+ PARAMESH ERROR: communication control info is 
+ being read, but it was never set up. You are 
+ probably missing a call to amr_checkpoint_re or amr_refine_derefine.
+p4_12321:  p4_error: : 0
+rm_l_4_12323: (3.152344) net_send: could not write to fd=5, errno = 32
+ pe            10  after mpi_amr_morton_limits
+ pe            10  after mpi_morton_bnd
+ pe            10  after mpi_amr_gsurr_blks
+ pe            10  after mpi_morton_bnd_prol
+ pe            10  after mpi_morton_bnd_flux
+ pe            10  after mpi_morton_bnd_restrict
+  read: ebox-x    0.00000      0.00000     10
+  read: ebox-y    0.00000      0.00000     10
+  read: ebox-z    0.00000      0.00000     10
+ leaving MPI_USED:3
+ leaving subroutine amr_checkpoint_re_a
+  check: ebox-x    0.00000      0.00000     10
+  check: ebox-y    0.00000      0.00000     10
+  check: ebox-z    0.00000      0.00000     10
+ PARAMESH ERROR: communication control info is 
+ being read, but it was never set up. You are 
+ probably missing a call to amr_checkpoint_re or amr_refine_derefine.
+p10_12622:  p4_error: : 0
+rm_l_10_12624: (3.144531) net_send: could not write to fd=5, errno = 32
+ pe            12  after mpi_amr_morton_limits
+ pe            12  after mpi_morton_bnd
+ pe            12  after mpi_amr_gsurr_blks
+ pe            12  after mpi_morton_bnd_prol
+ pe            12  after mpi_morton_bnd_flux
+ pe            12  after mpi_morton_bnd_restrict
+  read: ebox-x    0.00000      0.00000     12
+  read: ebox-y    0.00000      0.00000     12
+  read: ebox-z    0.00000      0.00000     12
+ leaving MPI_USED:3
+ leaving subroutine amr_checkpoint_re_a
+  check: ebox-x    0.00000      0.00000     12
+  check: ebox-y    0.00000      0.00000     12
+  check: ebox-z    0.00000      0.00000     12
+ PARAMESH ERROR: communication control info is 
+ being read, but it was never set up. You are 
+ probably missing a call to amr_checkpoint_re or amr_refine_derefine.
+p12_2483:  p4_error: : 0
+rm_l_12_2485: (3.144531) net_send: could not write to fd=5, errno = 32
+ pe             8  after mpi_amr_morton_limits
+ pe             8  after mpi_morton_bnd
+ pe             8  after mpi_amr_gsurr_blks
+ pe             8  after mpi_morton_bnd_prol
+ pe             8  after mpi_morton_bnd_flux
+ pe             8  after mpi_morton_bnd_restrict
+  read: ebox-x    0.00000      0.00000      8
+  read: ebox-y    0.00000      0.00000      8
+  read: ebox-z    0.00000      0.00000      8
+ leaving MPI_USED:3
+ leaving subroutine amr_checkpoint_re_a
+  check: ebox-x    0.00000      0.00000      8
+  check: ebox-y    0.00000      0.00000      8
+  check: ebox-z    0.00000      0.00000      8
+ PARAMESH ERROR: communication control info is 
+ being read, but it was never set up. You are 
+ probably missing a call to amr_checkpoint_re or amr_refine_derefine.
+p8_13536:  p4_error: : 0
+rm_l_8_13538: (3.148438) net_send: could not write to fd=5, errno = 32
+ pe             7  after mpi_amr_morton_limits
+ pe             7  after mpi_morton_bnd
+ pe             7  after mpi_amr_gsurr_blks
+ pe             7  after mpi_morton_bnd_prol
+ pe             7  after mpi_morton_bnd_flux
+ pe             7  after mpi_morton_bnd_restrict
+  read: ebox-x    0.00000      0.00000      7
+  read: ebox-y    0.00000      0.00000      7
+  read: ebox-z    0.00000      0.00000      7
+ leaving MPI_USED:3
+ leaving subroutine amr_checkpoint_re_a
+  check: ebox-x    0.00000      0.00000      7
+  check: ebox-y    0.00000      0.00000      7
+  check: ebox-z    0.00000      0.00000      7
+ PARAMESH ERROR: communication control info is 
+ being read, but it was never set up. You are 
+ probably missing a call to amr_checkpoint_re or amr_refine_derefine.
+p7_21124:  p4_error: : 0
+ pe             5  after mpi_amr_morton_limits
+ pe             5  after mpi_morton_bnd
+ pe             5  after mpi_amr_gsurr_blks
+ pe             5  after mpi_morton_bnd_prol
+ pe             5  after mpi_morton_bnd_flux
+ pe             5  after mpi_morton_bnd_restrict
+  read: ebox-x    0.00000      0.00000      5
+  read: ebox-y    0.00000      0.00000      5
+  read: ebox-z    0.00000      0.00000      5
+ leaving MPI_USED:3
+ leaving subroutine amr_checkpoint_re_a
+  check: ebox-x    0.00000      0.00000      5
+  check: ebox-y    0.00000      0.00000      5
+  check: ebox-z    0.00000      0.00000      5
+ PARAMESH ERROR: communication control info is 
+ being read, but it was never set up. You are 
+ probably missing a call to amr_checkpoint_re or amr_refine_derefine.
+p5_12322:  p4_error: : 0
+ pe            13  after mpi_amr_morton_limits
+ pe            13  after mpi_morton_bnd
+ pe            13  after mpi_amr_gsurr_blks
+ pe            13  after mpi_morton_bnd_prol
+ pe            13  after mpi_morton_bnd_flux
+ pe            13  after mpi_morton_bnd_restrict
+  read: ebox-x    0.00000      0.00000     13
+  read: ebox-y    0.00000      0.00000     13
+  read: ebox-z    0.00000      0.00000     13
+ leaving MPI_USED:3
+ leaving subroutine amr_checkpoint_re_a
+  check: ebox-x    0.00000      0.00000     13
+  check: ebox-y    0.00000      0.00000     13
+  check: ebox-z    0.00000      0.00000     13
+ PARAMESH ERROR: communication control info is 
+ being read, but it was never set up. You are 
+ probably missing a call to amr_checkpoint_re or amr_refine_derefine.
+p13_2484:  p4_error: : 0
+ pe             3  after mpi_amr_morton_limits
+ pe             3  after mpi_morton_bnd
+ pe             3  after mpi_amr_gsurr_blks
+ pe             3  after mpi_morton_bnd_prol
+ pe             3  after mpi_morton_bnd_flux
+ pe             3  after mpi_morton_bnd_restrict
+  read: ebox-x    0.00000      0.00000      3
+  read: ebox-y    0.00000      0.00000      3
+  read: ebox-z    0.00000      0.00000      3
+ leaving MPI_USED:3
+ leaving subroutine amr_checkpoint_re_a
+  check: ebox-x    0.00000      0.00000      3
+  check: ebox-y    0.00000      0.00000      3
+  check: ebox-z    0.00000      0.00000      3
+ PARAMESH ERROR: communication control info is 
+ being read, but it was never set up. You are 
+ probably missing a call to amr_checkpoint_re or amr_refine_derefine.
+rm_l_7_21126: (3.152344) net_send: could not write to fd=5, errno = 32
+rm_l_13_2486: (3.144531) net_send: could not write to fd=5, errno = 32
+ pe            15  after mpi_amr_morton_limits
+ pe            15  after mpi_morton_bnd
+ pe            15  after mpi_amr_gsurr_blks
+ pe            15  after mpi_morton_bnd_prol
+ pe            15  after mpi_morton_bnd_flux
+ pe            15  after mpi_morton_bnd_restrict
+  read: ebox-x    0.00000      0.00000     15
+  read: ebox-y    0.00000      0.00000     15
+  read: ebox-z    0.00000      0.00000     15
+ leaving MPI_USED:3
+ leaving subroutine amr_checkpoint_re_a
+  check: ebox-x    0.00000      0.00000     15
+  check: ebox-y    0.00000      0.00000     15
+  check: ebox-z    0.00000      0.00000     15
+ PARAMESH ERROR: communication control info is 
+ being read, but it was never set up. You are 
+ probably missing a call to amr_checkpoint_re or amr_refine_derefine.
+ pe            11  after mpi_amr_morton_limits
+ pe            11  after mpi_morton_bnd
+ pe            11  after mpi_amr_gsurr_blks
+ pe            11  after mpi_morton_bnd_prol
+ pe            11  after mpi_morton_bnd_flux
+ pe            11  after mpi_morton_bnd_restrict
+  read: ebox-x    0.00000      0.00000     11
+  read: ebox-y    0.00000      0.00000     11
+  read: ebox-z    0.00000      0.00000     11
+ leaving MPI_USED:3
+ leaving subroutine amr_checkpoint_re_a
+  check: ebox-x    0.00000      0.00000     11
+  check: ebox-y    0.00000      0.00000     11
+  check: ebox-z    0.00000      0.00000     11
+ PARAMESH ERROR: communication control info is 
+ being read, but it was never set up. You are 
+ probably missing a call to amr_checkpoint_re or amr_refine_derefine.
+p3_15139:  p4_error: : 0
+p15_11389:  p4_error: : 0
+p11_12623:  p4_error: : 0
+rm_l_3_15141: (3.156250) net_send: could not write to fd=5, errno = 32
+rm_l_15_11391: (3.140625) net_send: could not write to fd=5, errno = 32
+rm_l_5_12324: (3.152344) net_send: could not write to fd=5, errno = 32
+rm_l_11_12625: (3.148438) net_send: could not write to fd=5, errno = 32
+ pe             1  after mpi_amr_morton_limits
+ pe             1  after mpi_morton_bnd
+ pe             1  after mpi_amr_gsurr_blks
+ pe             1  after mpi_morton_bnd_prol
+ pe             1  after mpi_morton_bnd_flux
+ pe             1  after mpi_morton_bnd_restrict
+  read: ebox-x    0.00000      0.00000      1
+  read: ebox-y    0.00000      0.00000      1
+  read: ebox-z    0.00000      0.00000      1
+ leaving MPI_USED:3
+ leaving subroutine amr_checkpoint_re_a
+  check: ebox-x    0.00000      0.00000      1
+  check: ebox-y    0.00000      0.00000      1
+  check: ebox-z    0.00000      0.00000      1
+p1_29499:  p4_error: net_recv read:  probable EOF on socket: 1
+ pe             9  after mpi_amr_morton_limits
+ pe             9  after mpi_morton_bnd
+ pe             9  after mpi_amr_gsurr_blks
+ pe             9  after mpi_morton_bnd_prol
+ pe             9  after mpi_morton_bnd_flux
+ pe             9  after mpi_morton_bnd_restrict
+  read: ebox-x    0.00000      0.00000      9
+  read: ebox-y    0.00000      0.00000      9
+  read: ebox-z    0.00000      0.00000      9
+ leaving MPI_USED:3
+ leaving subroutine amr_checkpoint_re_a
+  check: ebox-x    0.00000      0.00000      9
+  check: ebox-y    0.00000      0.00000      9
+  check: ebox-z    0.00000      0.00000      9
+rm_l_1_29500: (3.156250) net_send: could not write to fd=5, errno = 32
+p9_13537:  p4_error: net_recv read:  probable EOF on socket: 1
+rm_l_9_13539: (3.148438) net_send: could not write to fd=5, errno = 32
+p6_21123: (29.171875) net_send: could not write to fd=5, errno = 32
+p10_12622: (29.167969) net_send: could not write to fd=5, errno = 32
+p12_2483: (29.167969) net_send: could not write to fd=5, errno = 32
+p14_11388: (29.167969) net_send: could not write to fd=5, errno = 32
+p8_13536: (29.171875) net_send: could not write to fd=5, errno = 32
+p3_15139: (29.183594) net_send: could not write to fd=5, errno = 32
+p4_12321: (29.175781) net_send: could not write to fd=5, errno = 32
+p13_2484: (29.167969) net_send: could not write to fd=5, errno = 32
+p15_11389: (29.167969) net_send: could not write to fd=5, errno = 32
+p2_15138: (29.183594) net_send: could not write to fd=5, errno = 32
+p5_12322: (29.175781) net_send: could not write to fd=5, errno = 32
+p7_21124: (29.175781) net_send: could not write to fd=5, errno = 32
+p11_12623: (29.175781) net_send: could not write to fd=5, errno = 32
+p1_29499: (33.183594) net_send: could not write to fd=5, errno = 32
+p9_13537: (33.183594) net_send: could not write to fd=5, errno = 32

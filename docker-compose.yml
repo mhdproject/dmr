@@ -1,0 +1,8 @@
+version: '2'
+services:
+  amrapp:
+    build:
+      context: ./athena
+      dockerfile: Dockerfile.64
+    volumes:
+      - ./athena:/athena

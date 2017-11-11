@@ -1,0 +1,40 @@
+/* athena_config.h.in.  Generated automatically from configure.in by autoheader.  */
+
+/* Most of these defines come from headers/paramesh_preprocessor.fh */
+/* For compiling w/ SHMEM. -- acconfig.h */
+#undef SHMEM_USED
+#undef MPI_USED
+
+/* Define if you have the GL library (-lGL).  */
+#undef HAVE_LIBGL
+
+/* Define if you have the GLU library (-lGLU).  */
+#undef HAVE_LIBGLU
+
+/* Define if you have the MesaOS library (-lMesaOS).  */
+#undef HAVE_LIBMESAOS
+
+/* Define if you have the OSMesa library (-lOSMesa).  */
+#undef HAVE_LIBOSMESA
+
+/* Define if you have the dl library (-ldl).  */
+#undef HAVE_LIBDL
+
+/* Define if you have the glut library (-lglut).  */
+#undef HAVE_LIBGLUT
+
+/* Define if you have the m library (-lm).  */
+#undef HAVE_LIBM
+
+/* Define if you have the mpi library (-lmpi).  */
+#undef HAVE_LIBMPI
+
+/* Define if you have the sma library (-lsma).  */
+#undef HAVE_LIBSMA
+
+/* Name of package */
+#undef PACKAGE
+
+/* Version number of package */
+#undef VERSION
+

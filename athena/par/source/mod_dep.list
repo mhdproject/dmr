@@ -1,0 +1,94 @@
+# --------------------------------------------------------------------
+# The following was created with '../make_use_depend --header ../headers --upper', included in this
+# package.  Use that to generate a replacement list of module
+# dependencies.
+#
+amr_1blk_bc.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/WORKSPACE.mod ../headers/TREE.mod ../headers/PARAMESH_INTERFACES.mod ../headers/amr_shmem.fh
+amr_1blk_cc_cp_remote.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/WORKSPACE.mod ../headers/MPI_MORTON.mod ../headers/PARAMESH_INTERFACES.mod ../headers/PARAMESH_MPI_INTERFACES.mod ../headers/paramesh_preprocessor.fh ../headers/amr_shmem.fh ../headers/timer.fh
+amr_1blk_cc_prol_gen_unk_fun.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/PROLONG_ARRAYS.mod ../headers/PARAMESH_INTERFACES.mod ../headers/paramesh_preprocessor.fh
+amr_1blk_cc_prol_gen_work_fun.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/WORKSPACE.mod ../headers/PROLONG_ARRAYS.mod ../headers/PARAMESH_INTERFACES.mod ../headers/paramesh_preprocessor.fh
+amr_1blk_cc_prol_genorder.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/paramesh_preprocessor.fh
+amr_1blk_cc_prol_inject.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/PROLONG_ARRAYS.mod ../headers/paramesh_preprocessor.fh
+amr_1blk_cc_prol_linear.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/PROLONG_ARRAYS.mod ../headers/paramesh_preprocessor.fh
+amr_1blk_cc_prol_muscl.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/PROLONG_ARRAYS.mod ../headers/paramesh_preprocessor.fh
+amr_1blk_cc_prol_work_genorder.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/WORKSPACE.mod ../headers/paramesh_preprocessor.fh
+amr_1blk_cc_prol_work_inject.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/WORKSPACE.mod ../headers/PROLONG_ARRAYS.mod
+amr_1blk_cc_prol_work_linear.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/WORKSPACE.mod ../headers/PROLONG_ARRAYS.mod
+amr_1blk_cc_prol_work_muscl.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/WORKSPACE.mod ../headers/PROLONG_ARRAYS.mod ../headers/paramesh_preprocessor.fh
+amr_1blk_copy_soln.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/PARAMESH_INTERFACES.mod ../headers/PARAMESH_MPI_INTERFACES.mod ../headers/paramesh_preprocessor.fh ../headers/amr_shmem.fh
+amr_1blk_ec_cp_remote.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/MPI_MORTON.mod ../headers/PARAMESH_INTERFACES.mod ../headers/PARAMESH_MPI_INTERFACES.mod ../headers/paramesh_preprocessor.fh ../headers/amr_shmem.fh
+amr_1blk_ec_prol_gen_fun.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/PROLONG_ARRAYS.mod ../headers/PARAMESH_INTERFACES.mod
+amr_1blk_ec_prol_genorder.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/paramesh_preprocessor.fh
+amr_1blk_ec_prol_linear.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/PROLONG_ARRAYS.mod ../headers/paramesh_preprocessor.fh
+amr_1blk_fc_cp_remote.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/MPI_MORTON.mod ../headers/PARAMESH_INTERFACES.mod ../headers/PARAMESH_MPI_INTERFACES.mod ../headers/paramesh_preprocessor.fh ../headers/amr_shmem.fh
+amr_1blk_fc_prol_gen_fun.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/PROLONG_ARRAYS.mod ../headers/PARAMESH_INTERFACES.mod ../headers/paramesh_preprocessor.fh
+amr_1blk_fc_prol_genorder.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/paramesh_preprocessor.fh
+amr_1blk_fc_prol_inject.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/PROLONG_ARRAYS.mod
+amr_1blk_fc_prol_linear.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/PROLONG_ARRAYS.mod
+amr_1blk_fc_prol_muscl.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/PROLONG_ARRAYS.mod ../headers/paramesh_preprocessor.fh
+amr_1blk_guardcell.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/WORKSPACE.mod ../headers/PARAMESH_INTERFACES.mod ../headers/paramesh_preprocessor.fh ../headers/amr_shmem.fh
+amr_1blk_guardcell_c_to_f.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/WORKSPACE.mod ../headers/PARAMESH_INTERFACES.mod ../headers/paramesh_preprocessor.fh ../headers/amr_shmem.fh
+amr_1blk_guardcell_reset.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod
+amr_1blk_guardcell_srl.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/WORKSPACE.mod ../headers/PARAMESH_INTERFACES.mod ../headers/amr_shmem.fh
+amr_1blk_nc_cp_remote.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/MPI_MORTON.mod ../headers/PARAMESH_INTERFACES.mod ../headers/PARAMESH_MPI_INTERFACES.mod ../headers/paramesh_preprocessor.fh ../headers/amr_shmem.fh
+amr_1blk_nc_prol_gen_fun.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/PROLONG_ARRAYS.mod ../headers/PARAMESH_INTERFACES.mod
+amr_1blk_nc_prol_genorder.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/paramesh_preprocessor.fh
+amr_1blk_nc_prol_linear.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/PROLONG_ARRAYS.mod ../headers/paramesh_preprocessor.fh
+amr_1blk_restrict.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/WORKSPACE.mod ../headers/PARAMESH_INTERFACES.mod ../headers/paramesh_preprocessor.fh ../headers/amr_shmem.fh
+amr_1blk_restrict_cc.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/WORKSPACE.mod ../headers/amr_shmem.fh
+amr_1blk_save_soln.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/paramesh_preprocessor.fh ../headers/amr_shmem.fh
+amr_1blk_t_to_perm.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/WORKSPACE.mod ../headers/paramesh_preprocessor.fh ../headers/amr_shmem.fh
+amr_1blk_to_2copy.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/WORKSPACE.mod ../headers/paramesh_preprocessor.fh ../headers/amr_shmem.fh
+amr_1blk_to_perm.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/WORKSPACE.mod ../headers/paramesh_preprocessor.fh ../headers/amr_shmem.fh
+amr_bc_block.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/WORKSPACE.mod ../headers/TREE.mod ../headers/PARAMESH_INTERFACES.mod ../headers/paramesh_preprocessor.fh ../headers/amr_shmem.fh ../headers/shmem_reduce.fh
+amr_bcset_init.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod
+amr_block_geometry.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/WORKSPACE.mod ../headers/paramesh_preprocessor.fh ../headers/amr_shmem.fh
+amr_checkpoint.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/PARAMESH_INTERFACES.mod ../headers/paramesh_preprocessor.fh ../headers/amr_shmem.fh
+amr_close.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/WORKSPACE.mod ../headers/MPI_MORTON.mod ../headers/TREE.mod ../headers/PROLONG_ARRAYS.mod ../headers/PARAMESH_INTERFACES.mod ../headers/paramesh_preprocessor.fh
+amr_derefine_blocks.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/PARAMESH_INTERFACES.mod ../headers/paramesh_preprocessor.fh ../headers/amr_shmem.fh
+amr_edge_average.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/PARAMESH_INTERFACES.mod ../headers/paramesh_preprocessor.fh
+amr_edge_average_udt.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/PARAMESH_INTERFACES.mod ../headers/paramesh_preprocessor.fh ../headers/amr_shmem.fh
+amr_edge_average_vdt.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/PARAMESH_INTERFACES.mod ../headers/paramesh_preprocessor.fh ../headers/amr_shmem.fh
+amr_edge_diagonal_check.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/paramesh_preprocessor.fh ../headers/amr_shmem.fh
+amr_flux_conserve.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/PARAMESH_INTERFACES.mod ../headers/paramesh_preprocessor.fh
+amr_flux_conserve_udt.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/PARAMESH_INTERFACES.mod ../headers/amr_shmem.fh
+amr_flux_conserve_vdt.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/PARAMESH_INTERFACES.mod ../headers/amr_shmem.fh
+amr_gsurrounding_blks.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/WORKSPACE.mod ../headers/paramesh_preprocessor.fh ../headers/amr_shmem.fh
+amr_guardcell.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/WORKSPACE.mod ../headers/TREE.mod ../headers/PARAMESH_INTERFACES.mod ../headers/paramesh_preprocessor.fh ../headers/timer.fh
+amr_initialize.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/WORKSPACE.mod ../headers/MPI_MORTON.mod ../headers/PROLONG_ARRAYS.mod ../headers/PARAMESH_INTERFACES.mod ../headers/paramesh_preprocessor.fh ../headers/amr_shmem.fh
+amr_morton.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/PARAMESH_INTERFACES.mod ../headers/paramesh_preprocessor.fh ../headers/amr_shmem.fh ../headers/shmem_reduce.fh
+amr_mpi_find_blk_in_buffer.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/MPI_MORTON.mod ../headers/paramesh_preprocessor.fh ../headers/amr_shmem.fh
+amr_perm_to_1blk.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/WORKSPACE.mod ../headers/MPI_MORTON.mod ../headers/paramesh_preprocessor.fh ../headers/amr_shmem.fh
+amr_prolong.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/WORKSPACE.mod ../headers/PARAMESH_INTERFACES.mod ../headers/paramesh_preprocessor.fh ../headers/amr_shmem.fh ../headers/timer.fh
+amr_prolong_cc_fun_init.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/WORKSPACE.mod ../headers/PROLONG_ARRAYS.mod ../headers/paramesh_preprocessor.fh
+amr_prolong_face_fun_init.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/WORKSPACE.mod ../headers/PROLONG_ARRAYS.mod
+amr_prolong_fc_divbconsist.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/paramesh_preprocessor.fh ../headers/amr_shmem.fh
+amr_prolong_fun_init.o:../headers/PARAMESH_INTERFACES.mod
+amr_redist_blk.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/PARAMESH_INTERFACES.mod ../headers/paramesh_preprocessor.fh ../headers/tracer.fh ../headers/amr_shmem.fh ../headers/shmem_reduce.fh
+amr_refine_blocks.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/paramesh_preprocessor.fh ../headers/amr_shmem.fh
+amr_refine_derefine.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/PARAMESH_INTERFACES.mod ../headers/paramesh_preprocessor.fh ../headers/amr_shmem.fh ../headers/shmem_reduce.fh ../headers/timer.fh
+amr_reorder_grid.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/PARAMESH_INTERFACES.mod ../headers/paramesh_preprocessor.fh ../headers/timer.fh
+amr_restrict.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/PARAMESH_INTERFACES.mod ../headers/paramesh_preprocessor.fh ../headers/timer.fh
+amr_restrict_bnd_data.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/PARAMESH_INTERFACES.mod ../headers/amr_shmem.fh
+amr_restrict_bnd_data_vdt.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/PARAMESH_INTERFACES.mod ../headers/paramesh_preprocessor.fh ../headers/amr_shmem.fh
+amr_restrict_eblock_marker.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/WORKSPACE.mod ../headers/amr_shmem.fh
+amr_restrict_ec_fun.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/paramesh_preprocessor.fh
+amr_restrict_edge.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod
+amr_restrict_edge_data.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/PARAMESH_INTERFACES.mod ../headers/amr_shmem.fh
+amr_restrict_edge_data_vdt.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/PARAMESH_INTERFACES.mod ../headers/paramesh_preprocessor.fh ../headers/amr_shmem.fh
+amr_restrict_fc_fun.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/paramesh_preprocessor.fh
+amr_restrict_red.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod
+amr_restrict_unk_fun.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/paramesh_preprocessor.fh
+amr_restrict_unk_fun_recip.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/paramesh_preprocessor.fh
+amr_restrict_work_fun.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/WORKSPACE.mod ../headers/paramesh_preprocessor.fh
+amr_restrict_work_fun_recip.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/WORKSPACE.mod
+amr_set_runtime_parameters.o:../headers/paramesh_preprocessor.fh
+amr_shmem_lib_1proc.o:../headers/paramesh_preprocessor.fh
+amr_shmem_reduce.o:../headers/paramesh_preprocessor.fh ../headers/amr_shmem.fh ../headers/shmem_reduce.fh
+amr_shmem_sgi_r8.o:../headers/paramesh_preprocessor.fh ../headers/amr_shmem.fh
+amr_surrounding_blks.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/WORKSPACE.mod ../headers/paramesh_preprocessor.fh ../headers/amr_shmem.fh
+gtest_neigh_data.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/WORKSPACE.mod ../headers/PARAMESH_INTERFACES.mod ../headers/amr_shmem.fh ../headers/timer.fh
+gtest_neigh_data1.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/WORKSPACE.mod ../headers/PARAMESH_INTERFACES.mod ../headers/PARAMESH_MPI_INTERFACES.mod ../headers/paramesh_preprocessor.fh ../headers/amr_shmem.fh ../headers/timer.fh
+guardcell_test.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/WORKSPACE.mod ../headers/PARAMESH_INTERFACES.mod ../headers/paramesh_preprocessor.fh ../headers/amr_shmem.fh ../headers/timer.fh
+mesh_test.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/WORKSPACE.mod ../headers/PARAMESH_MPI_INTERFACES.mod ../headers/paramesh_preprocessor.fh ../headers/amr_shmem.fh ../headers/timer.fh
+test_neigh_data.o:../headers/PARAMESH_DIMENSIONS.mod ../headers/PHYSICALDATA.mod ../headers/TREE.mod ../headers/WORKSPACE.mod ../headers/PARAMESH_INTERFACES.mod ../headers/paramesh_preprocessor.fh ../headers/amr_shmem.fh ../headers/timer.fh
