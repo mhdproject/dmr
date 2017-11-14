@@ -1,8 +1,0 @@
-      common/b_node/ 
-     .  bbx(il_bnd:iu_bnd+1,jl_bnd:ju_bnd+k2d,
-     .      kl_bnd:ku_bnd+k3d,maxblocks),
-     .  bby(il_bnd:iu_bnd+1,jl_bnd:ju_bnd+k2d,
-     .      kl_bnd:ku_bnd+k3d,maxblocks),
-     .  bbz(il_bnd:iu_bnd+1,jl_bnd:ju_bnd+k2d,
-     .      kl_bnd:ku_bnd+k3d,maxblocks)
-      real :: bbx,bby,bbz
