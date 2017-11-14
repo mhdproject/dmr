@@ -3,11 +3,9 @@ from __future__ import print_function
 from __future__ import print_function
 
 import array
-import numpy as np
-import os
+
 import scipy.interpolate
 import scipy.ndimage
-import sys
 from matplotlib.mlab import *
 from matplotlib.pyplot import *
 from scipy.interpolate import UnivariateSpline

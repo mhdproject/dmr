@@ -8,6 +8,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     gzip \
     libopenmpi-dev \
     make \
+    python2.7 \
     ssh \
     tar \
     vim \
